@@ -2,8 +2,8 @@
 #include "imgui.h"
 #include "rlImGui.h"
 
-namespace Micro
-{
+using namespace Micro;
+
 EditorApp::EditorApp()
 {
     std::cout << "Editor App Initialized" << std::endl;
@@ -137,4 +137,3 @@ int EditorApp::Run()
 
     return 0;
 }
-}  // namespace Micro
