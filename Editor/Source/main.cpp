@@ -46,7 +46,8 @@ int main()
 
                 if (ImGui::MenuItem("Quit"))
                 {
-                    CloseWindow();
+                    window.Close();
+                    return EXIT_SUCCESS;
                 }
                 ImGui::EndMenu();
             }
