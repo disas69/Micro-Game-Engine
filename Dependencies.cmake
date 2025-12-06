@@ -12,7 +12,7 @@ FetchContent_MakeAvailable(raylib)
 FetchContent_Declare(
         imgui
         GIT_REPOSITORY https://github.com/ocornut/imgui.git
-        GIT_TAG        v1.92.1
+        GIT_TAG        docking
 )
 FetchContent_MakeAvailable(imgui)
 add_library(imgui STATIC
@@ -25,6 +25,11 @@ add_library(imgui STATIC
 target_include_directories(imgui
         PUBLIC
         ${imgui_SOURCE_DIR}
+)
+target_compile_definitions(imgui
+        PUBLIC
+        IMGUI_ENABLE_DOCKING
+        # IMGUI_DISABLE_OBSOLETE_FUNCTIONS
 )
 
 # rlImGui (ImGui + raylib bridge)
