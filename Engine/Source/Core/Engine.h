@@ -17,6 +17,6 @@ public:
     }
 
 private:
-    raylib::Window m_Window;
+    raylib::Window m_window;
 };
 }

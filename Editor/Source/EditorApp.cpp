@@ -11,8 +11,8 @@ EditorApp::EditorApp()
     int screenWidth = GetScreenWidth();
     int screenHeight = GetScreenHeight();
 
-    m_window.Init(screenWidth, screenHeight, "Micro Engine");
     m_window.SetConfigFlags(FLAG_MSAA_4X_HINT | FLAG_VSYNC_HINT | FLAG_WINDOW_RESIZABLE);
+    m_window.Init(screenWidth, screenHeight, "Micro Engine");
     m_window.SetTargetFPS(60);
 
     rlImGuiSetup(true);
