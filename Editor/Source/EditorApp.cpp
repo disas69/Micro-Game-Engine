@@ -21,7 +21,7 @@ EditorApp::EditorApp()
     std::string defaultIni = exeDir + "default.ini";
 
     ImFileHandle iniFile = ImFileOpen(imguiIni.c_str(), "rb");
-    bool isFirstLaunch = (iniFile == nullptr);
+    bool isFirstLaunch = iniFile == nullptr;
     if (iniFile != nullptr)
     {
         ImFileClose(iniFile);
@@ -109,8 +109,9 @@ void EditorApp::DrawMainViewport(raylib::RenderTexture* renderTexture)
     ImGui::SetNextWindowSize(viewport->WorkSize);
     ImGui::DockSpaceOverViewport(0, viewport, ImGuiDockNodeFlags_PassthruCentralNode);
 
+    // Scene window
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
-    ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoScrollbar);
+    if (ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoScrollbar))
     {
         ImVec2 size = ImGui::GetContentRegionAvail();
         bool resized = (size.x != m_lastSceneViewSize.x || size.y != m_lastSceneViewSize.y);
@@ -125,22 +126,22 @@ void EditorApp::DrawMainViewport(raylib::RenderTexture* renderTexture)
     ImGui::End();
     ImGui::PopStyleVar();
 
-    ImGui::Begin("Project");
+    if (ImGui::Begin("Project"))
     {
     }
     ImGui::End();
 
-    ImGui::Begin("Console");
+    if (ImGui::Begin("Console"))
     {
     }
     ImGui::End();
 
-    ImGui::Begin("Inspector");
+    if (ImGui::Begin("Inspector"))
     {
     }
     ImGui::End();
 
-    ImGui::Begin("Hierarchy");
+    if (ImGui::Begin("Hierarchy"))
     {
     }
     ImGui::End();
