@@ -2,15 +2,19 @@
 #include "imgui.h"
 #include "imgui_internal.h"
 #include "rlImGui.h"
+#include "Core/Console.h"
 
 using namespace Micro;
 
+#define DEFAULT_EDITOR_SCREEN_WIDTH 1280
+#define DEFAULT_EDITOR_SCREEN_HEIGHT 720
+
 EditorApp::EditorApp()
 {
-    std::cout << "Editor App Initialized" << std::endl;
+    int screenWidth = DEFAULT_EDITOR_SCREEN_WIDTH;
+    int screenHeight = DEFAULT_EDITOR_SCREEN_HEIGHT;
 
-    int screenWidth = 1280;
-    int screenHeight = 720;
+    Console::Get().Initialize();
 
     raylib::Window::SetConfigFlags(FLAG_MSAA_4X_HINT | FLAG_VSYNC_HINT | FLAG_WINDOW_RESIZABLE);
     raylib::Window::Init(screenWidth, screenHeight, "Micro Engine");
@@ -39,6 +43,8 @@ EditorApp::EditorApp()
     }
 
     m_sceneView = SceneView(screenWidth, screenHeight);
+
+    TraceLog(LOG_INFO, "Editor App Initialized");
 }
 
 int EditorApp::Run()
@@ -131,8 +137,36 @@ void EditorApp::DrawMainViewport(raylib::RenderTexture* renderTexture)
     }
     ImGui::End();
 
+    // Console window
     if (ImGui::Begin("Console"))
     {
+        ImGui::BeginChild("ConsoleScrollView", ImVec2(0, 0), false, ImGuiWindowFlags_HorizontalScrollbar);
+
+        for (auto& entry : Console::Get().GetEntries())
+        {
+            ImVec4 color;
+            switch (entry.Level)
+            {
+                case LOG_INFO: color = ImVec4(1, 1, 1, 1); break;
+                case LOG_WARNING: color = ImVec4(1, 1, 0, 1); break;
+                case LOG_ERROR: color = ImVec4(1, 0.4f, 0.4f, 1); break;
+                case LOG_FATAL: color = ImVec4(1, 0, 0, 1); break;
+                default: color = ImVec4(1, 1, 1, 1); break;
+            }
+
+            ImGui::PushStyleColor(ImGuiCol_Text, color);
+            ImGui::TextUnformatted(entry.Text.c_str());
+            ImGui::PopStyleColor();
+        }
+
+        if (Console::Get().ShouldScrollToBottom())
+        {
+            ImGui::SetScrollHereY(1.0f);
+        }
+
+        Console::Get().ResetAutoScroll();
+
+        ImGui::EndChild();
     }
     ImGui::End();
 
