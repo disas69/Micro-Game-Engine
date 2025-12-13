@@ -43,7 +43,7 @@ EditorApp::EditorApp()
 
     m_sceneView = SceneView(screenWidth, screenHeight);
 
-    Log::Info("Editor App Initialized");
+    Log::Warning("Editor App Initialized");
 }
 
 int EditorApp::Run()
@@ -171,38 +171,12 @@ void EditorApp::DrawMainViewport(raylib::RenderTexture* sceneViewRT)
     // Console view
     if (ImGui::Begin("Console"))
     {
-        ImGui::BeginChild("ConsoleScrollView", ImVec2(0, 0), false, ImGuiWindowFlags_HorizontalScrollbar);
-
-        for (auto& entry : Log::Get().GetEntries())
-        {
-            ImVec4 color;
-            switch (entry.Level)
-            {
-                case LOG_INFO: color = ImVec4(1, 1, 1, 1); break;
-                case LOG_WARNING: color = ImVec4(1, 1, 0, 1); break;
-                case LOG_ERROR: color = ImVec4(1, 0.4f, 0.4f, 1); break;
-                case LOG_FATAL: color = ImVec4(1, 0, 0, 1); break;
-                default: color = ImVec4(1, 1, 1, 1); break;
-            }
-
-            ImGui::PushStyleColor(ImGuiCol_Text, color);
-            ImGui::TextUnformatted(entry.Text.c_str());
-            ImGui::PopStyleColor();
-        }
-
-        if (Log::Get().ShouldScrollToBottom())
-        {
-            ImGui::SetScrollHereY(1.0f);
-        }
-
-        Log::Get().ResetAutoScroll();
+        m_consoleView.Render();
 
         if (ImGui::IsWindowFocused())
         {
             m_focusedView = EditorView::Console;
         }
-
-        ImGui::EndChild();
     }
     ImGui::End();
 }

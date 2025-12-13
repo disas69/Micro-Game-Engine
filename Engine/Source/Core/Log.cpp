@@ -52,7 +52,7 @@ void Log::AddLog(int level, const std::string& text)
     strftime(timeStr, sizeof(timeStr), "[%H:%M:%S]", &buf);
 
     m_entries.emplace_back(LogEntry{
-        .Level = level,
+        .Level = static_cast<uint32_t>(level),
         .Text = std::string(timeStr) + " " + text
     });
 

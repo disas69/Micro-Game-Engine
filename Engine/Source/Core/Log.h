@@ -2,9 +2,34 @@
 
 namespace Micro
 {
+enum class LogLevelFlags : uint32_t
+{
+    None = 0,
+    Info = 1 << 0,
+    Warning = 1 << 1,
+    Error = 1 << 2,
+    Fatal = 1 << 3,
+    All = Info | Warning | Error | Fatal
+};
+
+inline LogLevelFlags operator|(LogLevelFlags a, LogLevelFlags b)
+{
+    return static_cast<LogLevelFlags>(static_cast<uint32_t>(a) | static_cast<uint32_t>(b));
+}
+
+inline LogLevelFlags operator&(LogLevelFlags a, LogLevelFlags b)
+{
+    return static_cast<LogLevelFlags>(static_cast<uint32_t>(a) & static_cast<uint32_t>(b));
+}
+
+inline LogLevelFlags operator~(LogLevelFlags a)
+{
+    return static_cast<LogLevelFlags>(~static_cast<uint32_t>(a));
+}
+
 struct LogEntry
 {
-    int Level;
+    uint32_t Level;
     std::string Text;
 };
 
@@ -35,8 +60,11 @@ public:
     void Clear();
     void ResetAutoScroll();
 
+    LogLevelFlags* LevelFlagsMask() { return &m_levelMask; }
+
 private:
     std::vector<LogEntry> m_entries = {};
+    LogLevelFlags m_levelMask = LogLevelFlags::All;
     bool m_scrollToBottom = false;
 
     Log() = default;

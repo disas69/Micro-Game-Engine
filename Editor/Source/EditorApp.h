@@ -4,6 +4,7 @@
 #include "raylib-cpp.hpp"
 #include "imgui.h"
 #include "Core/Engine.h"
+#include "Core/View/ConsoleView.h"
 #include "Core/View/SceneView.h"
 
 enum class EditorView : uint8_t
@@ -29,6 +30,7 @@ private:
     raylib::Window m_window;
 
     SceneView m_sceneView;
+    ConsoleView m_consoleView;
 
     EditorView m_focusedView = EditorView::None;
 
