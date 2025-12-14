@@ -26,6 +26,13 @@ private:
 
     raylib::RenderTexture m_renderTexture;
     raylib::Camera m_camera;
+
+    float m_moveSpeed = 10.0f;
+    float m_mouseSensitivity = 0.007f;
+    float m_yaw = 0.0f;
+    float m_pitch = 0.0f;
+
+    void UpdateCamera();
 };
 }
 

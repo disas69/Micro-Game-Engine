@@ -1,4 +1,5 @@
 #include "SceneView.h"
+#include "Core/Log.h"
 
 using namespace Micro;
 
@@ -9,11 +10,17 @@ SceneView::SceneView(int width, int height) : m_width(width), m_height(height), 
     m_camera.SetUp({0.0f, 1.0f, 0.0f});
     m_camera.SetFovy(60.0f);
     m_camera.SetProjection(CAMERA_PERSPECTIVE);
+
+    raylib::Vector3 forward = Vector3Subtract(m_camera.target, m_camera.position);
+    forward = forward.Normalize();
+
+    m_yaw = atan2f(forward.x, forward.z);
+    m_pitch = asinf(forward.y);
 }
 
 void SceneView::Update()
 {
-    UpdateCamera(&m_camera, CAMERA_ORBITAL);
+    UpdateCamera();
 }
 
 void SceneView::Render()
@@ -25,7 +32,7 @@ void SceneView::Render()
     Vector3 cubePosition = {0.0f, 0.0f, 0.0f};
     DrawCube(cubePosition, 2.0f, 2.0f, 2.0f, RED);
     DrawCubeWires(cubePosition, 2.0f, 2.0f, 2.0f, MAROON);
-    DrawGrid(10, 1.0f);
+    DrawGrid(100, 1.0f);
 
     EndMode3D();
     m_renderTexture.EndMode();
@@ -40,4 +47,41 @@ void SceneView::Resize(int width, int height)
         m_width = width;
         m_height = height;
     }
+}
+
+void SceneView::UpdateCamera()
+{
+    float wheel = GetMouseWheelMove();
+    if (wheel != 0.0f)
+    {
+        m_moveSpeed *= (1.0f + wheel * 0.1f);
+        m_moveSpeed = Clamp(m_moveSpeed, 1.0f, 100.0f);
+
+        Log::Info("Camera Move Speed: " + std::to_string(m_moveSpeed));
+    }
+
+    if (IsMouseButtonDown(MOUSE_RIGHT_BUTTON))
+    {
+        Vector2 delta = GetMouseDelta();
+        m_yaw -= delta.x * m_mouseSensitivity;
+        m_pitch -= delta.y * m_mouseSensitivity;
+        m_pitch = Clamp(m_pitch, -1.55f, 1.55f);  // avoid gimbal flip
+    }
+
+    Vector3 forward = {cosf(m_pitch) * sinf(m_yaw), sinf(m_pitch), cosf(m_pitch) * cosf(m_yaw)};
+    forward = Vector3Normalize(forward);
+    Vector3 right = Vector3Normalize(Vector3CrossProduct(forward, {0, 1, 0}));
+    Vector3 up = Vector3CrossProduct(right, forward);
+
+    float speed = m_moveSpeed * GetFrameTime();
+
+    if (IsKeyDown(KEY_W)) m_camera.position = Vector3Add(m_camera.position, Vector3Scale(forward, speed));
+    if (IsKeyDown(KEY_S)) m_camera.position = Vector3Subtract(m_camera.position, Vector3Scale(forward, speed));
+    if (IsKeyDown(KEY_A)) m_camera.position = Vector3Subtract(m_camera.position, Vector3Scale(right, speed));
+    if (IsKeyDown(KEY_D)) m_camera.position = Vector3Add(m_camera.position, Vector3Scale(right, speed));
+    if (IsKeyDown(KEY_E)) m_camera.position.y += speed;
+    if (IsKeyDown(KEY_Q)) m_camera.position.y -= speed;
+
+    m_camera.target = Vector3Add(m_camera.position, forward);
+    m_camera.up = up;
 }
