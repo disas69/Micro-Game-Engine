@@ -132,7 +132,7 @@ void EditorApp::DrawMainViewport(raylib::RenderTexture* sceneViewRT)
 
         rlImGuiImageRenderTextureFit(sceneViewRT, true);
 
-        if (ImGui::IsWindowFocused())
+        if (ImGui::IsWindowFocused(ImGuiFocusedFlags_RootAndChildWindows))
         {
             m_focusedView = EditorView::Scene;
         }
@@ -142,7 +142,7 @@ void EditorApp::DrawMainViewport(raylib::RenderTexture* sceneViewRT)
 
     if (ImGui::Begin("Hierarchy"))
     {
-        if (ImGui::IsWindowFocused())
+        if (ImGui::IsWindowFocused(ImGuiFocusedFlags_RootAndChildWindows))
         {
             m_focusedView = EditorView::Hierarchy;
         }
@@ -151,7 +151,7 @@ void EditorApp::DrawMainViewport(raylib::RenderTexture* sceneViewRT)
 
     if (ImGui::Begin("Inspector"))
     {
-        if (ImGui::IsWindowFocused())
+        if (ImGui::IsWindowFocused(ImGuiFocusedFlags_RootAndChildWindows))
         {
             m_focusedView = EditorView::Inspector;
         }
@@ -160,7 +160,7 @@ void EditorApp::DrawMainViewport(raylib::RenderTexture* sceneViewRT)
 
     if (ImGui::Begin("Project"))
     {
-        if (ImGui::IsWindowFocused())
+        if (ImGui::IsWindowFocused(ImGuiFocusedFlags_RootAndChildWindows))
         {
             m_focusedView = EditorView::Project;
         }
@@ -171,7 +171,7 @@ void EditorApp::DrawMainViewport(raylib::RenderTexture* sceneViewRT)
     {
         m_consoleView.Render();
 
-        if (ImGui::IsWindowFocused())
+        if (ImGui::IsWindowFocused(ImGuiFocusedFlags_RootAndChildWindows))
         {
             m_focusedView = EditorView::Console;
         }
