@@ -9,6 +9,11 @@ Engine::Engine()
     Log::Info("Initializing Micro Engine. Version: " + std::string(version()));
 }
 
+Engine::~Engine()
+{
+
+}
+
 int Engine::Run()
 {
     int screenWidth = 800;
@@ -18,7 +23,7 @@ int Engine::Run()
     raylib::Window::Init(screenWidth, screenHeight, "raylib-cpp - basic window");
     m_window.SetTargetFPS(60);
 
-    while (!m_window.ShouldClose())
+    while (!raylib::Window::ShouldClose())
     {
         m_window.BeginDrawing();
         m_window.ClearBackground(RAYWHITE);

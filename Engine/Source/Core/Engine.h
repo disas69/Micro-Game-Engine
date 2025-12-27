@@ -9,6 +9,11 @@ class Engine final
 {
 public:
     Engine();
+    ~Engine();
+
+    Engine(const Engine&) = delete;
+    Engine(Engine&&) = delete;
+
     int Run();
 
     static constexpr std::string_view version()

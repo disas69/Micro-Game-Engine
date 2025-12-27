@@ -46,6 +46,11 @@ EditorApp::EditorApp()
     Log::Info("Editor App Initialized");
 }
 
+EditorApp::~EditorApp()
+{
+
+}
+
 int EditorApp::Run()
 {
     while (!raylib::Window::ShouldClose() && !m_shouldShutdown)

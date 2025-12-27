@@ -23,6 +23,11 @@ class EditorApp
 {
 public:
     EditorApp();
+    ~EditorApp();
+
+    EditorApp(const EditorApp&) = delete;
+    EditorApp(EditorApp&&) = delete;
+
     int Run();
 
 private:

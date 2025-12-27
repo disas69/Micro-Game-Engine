@@ -8,6 +8,10 @@ class SceneLogView
 {
 public:
     SceneLogView();
+
+    SceneLogView(const SceneLogView& other) = delete;
+    SceneLogView(SceneLogView&& other) = delete;
+
     void AddLogEntry(const LogEntry& entry);
     void Update();
     void Render();

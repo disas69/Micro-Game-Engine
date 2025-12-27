@@ -7,6 +7,10 @@ namespace Micro
 class ConsoleView
 {
 public:
+    ConsoleView() = default;
+    ConsoleView(const ConsoleView&) = delete;
+    ConsoleView& operator=(const ConsoleView&) = delete;
+
     void Render();
 
 private:
