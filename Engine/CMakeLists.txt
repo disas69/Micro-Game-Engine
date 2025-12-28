@@ -8,6 +8,7 @@ set(ENGINE_SOURCES
         Source/Core/Engine.h
         Source/Core/Log.cpp
         Source/Core/Log.h
+        Source/Memory/ArenaAllocator.h
         Source/pch.cpp
         Source/pch.h
 )
