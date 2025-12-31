@@ -11,6 +11,13 @@ set(ENGINE_SOURCES
         Source/Memory/ArenaAllocator.h
         Source/Game/GameBase.cpp
         Source/Game/GameBase.h
+        Source/Gameplay/Component.h
+        Source/Gameplay/GameObject.h
+        Source/Gameplay/GameObject.cpp
+        Source/Gameplay/Transform2DComponent.h
+        Source/Gameplay/GraphicComponent.h
+        Source/Gameplay/SpriteComponent.h
+        Source/Gameplay/StaticMeshComponent.h
         Source/Game/DefaultGame.cpp
         Source/Game/DefaultGame.h
         Source/pch.cpp

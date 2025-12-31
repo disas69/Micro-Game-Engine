@@ -1,9 +1,13 @@
 #pragma once
 
 #include "Memory/ArenaAllocator.h"
+#include <vector>
+#include <string>
 
 namespace Micro
 {
+class GameObject;
+
 class GameBase
 {
 public:
@@ -22,6 +26,20 @@ public:
     virtual void Update(ArenaAllocator& frameArena, float deltaTime) = 0;
     virtual void Render() = 0;
 
+    void UpdateGameObjects(float deltaTime);
+    void RenderGameObjects();
+
+    template <typename T, typename... Args>
+    T* CreateGameObject(Args&&... args)
+    {
+        T* gameObject = m_persistentArena.Allocate<T>(m_persistentArena, std::forward<Args>(args)...);
+        if (gameObject != nullptr)
+        {
+            m_gameObjects.push_back(gameObject);
+        }
+        return gameObject;
+    }
+
     std::string GetWindowTitle() const { return m_windowTitle; }
     bool ShouldClose() const { return m_shouldClose; }
 
@@ -33,5 +51,7 @@ protected:
     float m_screenHeight = 0;
 
     bool m_shouldClose = false;
+
+    std::vector<GameObject*> m_gameObjects;
 };
 }  // namespace Micro
