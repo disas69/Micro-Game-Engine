@@ -51,8 +51,14 @@ public:
     const std::string& GetName() const { return m_name; }
     void SetName(const std::string& name) { m_name = name; }
 
+    void Enable() { SetActive(true); }
+    void Disable() { SetActive(false); }
+
     bool IsActive() const { return m_isActive; }
-    void SetActive(bool active) { m_isActive = active; }
+    void SetActive(bool active);
+
+    virtual void OnEnable() {}
+    virtual void OnDisable() {}
 
 protected:
     ArenaAllocator& m_arena;

@@ -2,15 +2,9 @@
 
 namespace Micro
 {
-GameObject::GameObject(ArenaAllocator& arena, std::string name)
-    : m_arena(arena), m_name(std::move(name))
-{
-}
+GameObject::GameObject(ArenaAllocator& arena, std::string name) : m_arena(arena), m_name(std::move(name)) {}
 
-GameObject::GameObject(ArenaAllocator& arena)
-    : m_arena(arena), m_name("GameObject")
-{
-}
+GameObject::GameObject(ArenaAllocator& arena) : m_arena(arena), m_name("GameObject") {}
 
 void GameObject::OnInit()
 {
@@ -29,7 +23,10 @@ void GameObject::OnUpdate(float deltaTime)
 
     for (auto* component : m_components)
     {
-        component->OnUpdate(deltaTime);
+        if (component->IsActive())
+        {
+            component->OnUpdate(deltaTime);
+        }
     }
 }
 
@@ -42,7 +39,10 @@ void GameObject::OnRender()
 
     for (auto* component : m_components)
     {
-        component->OnRender();
+        if (component->IsActive())
+        {
+            component->OnRender();
+        }
     }
 }
 
@@ -53,4 +53,23 @@ void GameObject::OnDestroy()
         component->OnDestroy();
     }
 }
-} // namespace Micro
+
+void GameObject::SetActive(bool active)
+{
+    if (m_isActive == active)
+    {
+        return;
+    }
+
+    m_isActive = active;
+
+    if (m_isActive)
+    {
+        OnEnable();
+    }
+    else
+    {
+        OnDisable();
+    }
+}
+}  // namespace Micro

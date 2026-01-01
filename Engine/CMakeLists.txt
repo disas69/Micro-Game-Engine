@@ -12,8 +12,10 @@ set(ENGINE_SOURCES
         Source/Game/GameBase.cpp
         Source/Game/GameBase.h
         Source/Gameplay/Component.h
+        Source/Gameplay/Component.cpp
         Source/Gameplay/GameObject.h
         Source/Gameplay/GameObject.cpp
+        Source/Gameplay/GameObjectsPool.h
         Source/Gameplay/Transform2DComponent.h
         Source/Gameplay/GraphicComponent.h
         Source/Gameplay/SpriteComponent.h
