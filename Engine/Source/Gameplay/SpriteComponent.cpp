@@ -17,7 +17,12 @@ void SpriteComponent::OnRender()
 
     if (m_transform != nullptr)
     {
-        DrawBillboard(GetActiveCamera3D(), SpriteTexture, m_transform->Position, SourceRect.width * m_transform->Scale.x, Tint);
+        raylib::Vector3 up = {0.0f, 1.0f, 0.0f};
+        raylib::Vector3 scale = m_transform->Scale;
+        raylib::Vector2 size = (Vector2){SourceRect.width * scale.x, SourceRect.height * scale.y};
+        raylib::Vector2 origin = Vector2Scale(size, 0.5);
+
+        DrawBillboardPro(GetActiveCamera3D(), SpriteTexture, SourceRect, m_transform->Position, up, size, origin, m_transform->Rotation.y, Tint);
     }
 }
 }  // namespace Micro

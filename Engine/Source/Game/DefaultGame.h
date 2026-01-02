@@ -19,5 +19,7 @@ private:
     GameObject* m_2dGameObject = nullptr;
     GameObject* m_3dGameObject = nullptr;
     GameObject* m_textGameObject = nullptr;
+    GameObject* m_imageGameObject = nullptr;
+
 };
 }  // namespace Micro
