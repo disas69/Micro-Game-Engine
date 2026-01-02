@@ -16,10 +16,10 @@ class GraphicComponent : public Component
 public:
     explicit GraphicComponent(const GraphicComponentType type) : m_graphicType(type) {}
 
+    raylib::Color Tint = WHITE;
+
     GraphicComponentType GetGraphicType() const { return m_graphicType; }
     virtual void OnRender() = 0;
-
-    raylib::Color Tint = WHITE;
 
 private:
     GraphicComponentType m_graphicType;

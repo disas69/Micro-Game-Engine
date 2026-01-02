@@ -1,8 +1,8 @@
 #include "SceneView.h"
 #include "Core/Log.h"
 
-using namespace Micro;
-
+namespace Micro
+{
 SceneView::~SceneView()
 {
     Log::Get().SetLogCallback(nullptr);
@@ -99,3 +99,5 @@ void SceneView::UpdateCamera()
     m_camera.target = Vector3Add(m_camera.position, forward);
     m_camera.up = up;
 }
+
+}  // namespace Micro

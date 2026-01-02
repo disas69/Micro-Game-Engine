@@ -1,8 +1,8 @@
 #include "Log.h"
 #include "raylib.h"
 
-using namespace Micro;
-
+namespace Micro
+{
 void ProcessTraceLog(int logLevel, const char* text, va_list args)
 {
     char buffer[1024];
@@ -50,10 +50,7 @@ void Log::AddLog(int level, const std::string& text)
     char timeStr[16];
     strftime(timeStr, sizeof(timeStr), "[%H:%M:%S]", &buf);
 
-    LogEntry entry = LogEntry{
-        .Level = static_cast<uint32_t>(level),
-        .Text = std::string(timeStr) + " " + text,
-        .Timestamp = timestamp};
+    LogEntry entry = LogEntry{.Level = static_cast<uint32_t>(level), .Text = std::string(timeStr) + " " + text, .Timestamp = timestamp};
 
     if (m_logCallback != nullptr)
     {
@@ -74,3 +71,4 @@ void Log::ResetAutoScroll()
 {
     m_scrollToBottom = false;
 }
+}  // namespace Micro

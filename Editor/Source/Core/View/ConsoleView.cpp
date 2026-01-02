@@ -3,19 +3,22 @@
 #include "EditorApp.h"
 #include "Core/Log.h"
 
-using namespace Micro;
-
+namespace Micro
+{
 void ConsoleView::Render()
 {
     LogLevelFlags* flags = Log::Get().LevelFlagsMask();
     std::vector<LogEntry> entries = Log::Get().GetEntries();
 
-    CheckboxLogLevelFlags("Info", flags, LogLevelFlags::Info); ImGui::SameLine();
-    CheckboxLogLevelFlags("Warning", flags, LogLevelFlags::Warning); ImGui::SameLine();
-    CheckboxLogLevelFlags("Error", flags, LogLevelFlags::Error); ImGui::SameLine();
+    CheckboxLogLevelFlags("Info", flags, LogLevelFlags::Info);
+    ImGui::SameLine();
+    CheckboxLogLevelFlags("Warning", flags, LogLevelFlags::Warning);
+    ImGui::SameLine();
+    CheckboxLogLevelFlags("Error", flags, LogLevelFlags::Error);
+    ImGui::SameLine();
     CheckboxLogLevelFlags("Fatal", flags, LogLevelFlags::Fatal);
 
-    float buttonWidth = ImGui::CalcTextSize("Clear").x+ ImGui::GetStyle().FramePadding.x * 2;
+    float buttonWidth = ImGui::CalcTextSize("Clear").x + ImGui::GetStyle().FramePadding.x * 2;
     ImGui::SameLine(ImGui::GetContentRegionAvail().x - buttonWidth);
     if (ImGui::Button("Clear"))
     {
@@ -97,3 +100,4 @@ bool ConsoleView::CheckboxLogLevelFlags(const char* label, LogLevelFlags* flags,
     }
     return false;
 }
+}  // namespace Micro

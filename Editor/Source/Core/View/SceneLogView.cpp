@@ -1,8 +1,8 @@
 #include "SceneLogView.h"
 #include "raylib.h"
 
-using namespace Micro;
-
+namespace Micro
+{
 SceneLogView::SceneLogView()
 {
     m_logEntries.reserve(m_maxVisibleSize);
@@ -67,3 +67,4 @@ void SceneLogView::Render(ImVec2 size)
         yOffset += 15;
     }
 }
+}  // namespace Micro

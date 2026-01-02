@@ -5,8 +5,8 @@
 #include "Core/Engine.h"
 #include "Core/Log.h"
 
-using namespace Micro;
-
+namespace Micro
+{
 #define DEFAULT_EDITOR_SCREEN_WIDTH 1280
 #define DEFAULT_EDITOR_SCREEN_HEIGHT 720
 
@@ -46,10 +46,7 @@ EditorApp::EditorApp()
     MICRO_LOG_INFO("Editor App Initialized");
 }
 
-EditorApp::~EditorApp()
-{
-
-}
+EditorApp::~EditorApp() {}
 
 int EditorApp::Run()
 {
@@ -183,3 +180,4 @@ void EditorApp::DrawMainViewport(raylib::RenderTexture* sceneViewRT)
     }
     ImGui::End();
 }
+}  // namespace Micro

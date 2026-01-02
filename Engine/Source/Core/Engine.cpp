@@ -2,8 +2,8 @@
 #include "Log.h"
 #include "Game/GameBase.h"
 
-using namespace Micro;
-
+namespace Micro
+{
 Engine::Engine()
 {
     Log::Initialize();
@@ -54,3 +54,4 @@ void Engine::Render(GameBase* game)
 
     m_window.EndDrawing();
 }
+}  // namespace Micro

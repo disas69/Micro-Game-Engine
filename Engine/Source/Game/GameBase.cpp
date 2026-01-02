@@ -1,8 +1,8 @@
 #include "GameBase.h"
 #include "Gameplay/GameObject.h"
 
-using namespace Micro;
-
+namespace Micro
+{
 void GameBase::Init()
 {
     Resize(GetScreenWidth(), GetScreenHeight());
@@ -46,3 +46,4 @@ void GameBase::RenderUIGameObjects()
         gameObject->OnRenderUI();
     }
 }
+}  // namespace Micro

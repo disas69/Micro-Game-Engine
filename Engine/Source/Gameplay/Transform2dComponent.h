@@ -4,13 +4,13 @@
 
 namespace Micro
 {
-class Transform2DComponent : public Component
+class Transform2dComponent : public Component
 {
 public:
     raylib::Vector2 Position = {0.0f, 0.0f};
     float Rotation = 0.0f;
     raylib::Vector2 Scale = {1.0f, 1.0f};
 
-    Transform2DComponent() = default;
+    Transform2dComponent() = default;
 };
 }  // namespace Micro

@@ -8,6 +8,8 @@ set(ENGINE_SOURCES
         Source/Core/Engine.h
         Source/Core/Log.cpp
         Source/Core/Log.h
+        Source/Core/RenderContext.cpp
+        Source/Core/RenderContext.h
         Source/Memory/ArenaAllocator.h
         Source/Game/GameBase.cpp
         Source/Game/GameBase.h
@@ -15,11 +17,15 @@ set(ENGINE_SOURCES
         Source/Gameplay/Component.cpp
         Source/Gameplay/GameObject.h
         Source/Gameplay/GameObject.cpp
-        Source/Gameplay/GameObjectsPool.h
-        Source/Gameplay/Transform2DComponent.h
+        Source/Gameplay/GameObjectPool.h
+        Source/Gameplay/Transform2dComponent.cpp
+        Source/Gameplay/Transform2dComponent.h
+        Source/Gameplay/TransformComponent.cpp
         Source/Gameplay/TransformComponent.h
         Source/Gameplay/GraphicComponent.h
+        Source/Gameplay/SpriteComponent.cpp
         Source/Gameplay/SpriteComponent.h
+        Source/Gameplay/MeshComponent.cpp
         Source/Gameplay/MeshComponent.h
         Source/Gameplay/TextComponent.cpp
         Source/Gameplay/TextComponent.h

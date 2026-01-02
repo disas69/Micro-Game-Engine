@@ -4,7 +4,7 @@
 
 namespace Micro
 {
-class Transform2DComponent;
+class Transform2dComponent;
 
 class TextComponent : public GraphicComponent
 {
@@ -18,6 +18,6 @@ public:
     raylib::Color Color;
 
 private:
-    Transform2DComponent* m_transform = nullptr;
+    Transform2dComponent* m_transform = nullptr;
 };
 }  // namespace Micro

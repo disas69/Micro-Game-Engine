@@ -8,11 +8,11 @@
 namespace Micro
 {
 template <typename T>
-class GameObjectsPool
+class GameObjectPool
 {
 public:
-    GameObjectsPool(ArenaAllocator& arena) : m_arena(arena) {}
-    GameObjectsPool(ArenaAllocator& arena, size_t initialSize) : m_arena(arena)
+    GameObjectPool(ArenaAllocator& arena) : m_arena(arena) {}
+    GameObjectPool(ArenaAllocator& arena, size_t initialSize) : m_arena(arena)
     {
         for (size_t i = 0; i < initialSize; ++i)
         {

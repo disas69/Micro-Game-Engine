@@ -1,6 +1,6 @@
 #include "TextComponent.h"
 #include "Gameplay/GameObject.h"
-#include "Gameplay/Transform2DComponent.h"
+#include "Gameplay/Transform2dComponent.h"
 
 namespace Micro
 {
@@ -13,7 +13,7 @@ void TextComponent::OnRender()
 {
     if (m_transform == nullptr)
     {
-        m_transform = GetOwner()->GetComponent<Transform2DComponent>();
+        m_transform = GetOwner()->GetComponent<Transform2dComponent>();
     }
 
     if (m_transform != nullptr)

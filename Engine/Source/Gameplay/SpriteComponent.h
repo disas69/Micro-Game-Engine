@@ -1,36 +1,22 @@
 #pragma once
 
 #include "GraphicComponent.h"
-#include "Transform2DComponent.h"
-#include "GameObject.h"
 
 namespace Micro
 {
+class TransformComponent;
+
 class SpriteComponent : public GraphicComponent
 {
 public:
-    SpriteComponent() : GraphicComponent(GraphicComponentType::GraphicType2D) {}
+    SpriteComponent();
 
-    raylib::Texture2D SpriteTexture = {};
-    raylib::Rectangle SourceRect = raylib::Rectangle{0, 0, 0, 0};
+    void OnRender() override;
 
-    void OnRender() override
-    {
-        Transform2DComponent* transform = m_owner->GetComponent<Transform2DComponent>();
-        if (transform != nullptr)
-        {
-            Vector2 origin = {(SourceRect.width * transform->Scale.x) / 2.0f, (SourceRect.height * transform->Scale.y) / 2.0f};
-            Rectangle destRect = {transform->Position.x, transform->Position.y, SourceRect.width * transform->Scale.x, SourceRect.height * transform->Scale.y};
+    raylib::Texture2D SpriteTexture;
+    raylib::Rectangle SourceRect = {0, 0, 100, 100};
 
-            if (SpriteTexture.id != 0)
-            {
-                DrawTexturePro(SpriteTexture, SourceRect, destRect, origin, transform->Rotation, Tint);
-            }
-            else
-            {
-                DrawRectanglePro(destRect, origin, transform->Rotation, Tint);
-            }
-        }
-    }
+private:
+    TransformComponent* m_transform = nullptr;
 };
 }  // namespace Micro
