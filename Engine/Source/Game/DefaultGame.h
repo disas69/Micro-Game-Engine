@@ -10,8 +10,8 @@ public:
     explicit DefaultGame(ArenaAllocator& persistentArena);
 
     void OnInit() override;
-    void Update(ArenaAllocator& frameArena, float deltaTime) override;
-    void Render() override;
+    void OnUpdate(ArenaAllocator& frameArena, float deltaTime) override;
+    void OnRender() override;
 
 private:
     raylib::Camera m_camera = {};

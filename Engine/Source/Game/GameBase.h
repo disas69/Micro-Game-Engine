@@ -21,8 +21,8 @@ public:
     void Resize(int screenWidth, int screenHeight);
 
     virtual void OnInit() = 0;
-    virtual void Update(ArenaAllocator& frameArena, float deltaTime) = 0;
-    virtual void Render() = 0;
+    virtual void OnUpdate(ArenaAllocator& frameArena, float deltaTime) = 0;
+    virtual void OnRender() = 0;
 
     void UpdateGameObjects(float deltaTime);
     void Render3DGameObjects();

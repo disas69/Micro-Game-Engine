@@ -40,7 +40,7 @@ void DefaultGame::OnInit()
     staticMesh->ObjectMaterial.maps[MATERIAL_MAP_DIFFUSE].color = RED;
 }
 
-void DefaultGame::Update(ArenaAllocator& frameArena, float deltaTime)
+void DefaultGame::OnUpdate(ArenaAllocator& frameArena, float deltaTime)
 {
     UpdateGameObjects(deltaTime);
 
@@ -55,7 +55,7 @@ void DefaultGame::Update(ArenaAllocator& frameArena, float deltaTime)
     transform3d->Rotation.y = fmodf(transform3d->Rotation.y + 50.0f * deltaTime, 360.0f);
 }
 
-void DefaultGame::Render()
+void DefaultGame::OnRender()
 {
     BeginMode3D(m_camera);
     Render3DGameObjects();

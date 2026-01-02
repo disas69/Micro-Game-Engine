@@ -31,7 +31,7 @@ int Engine::Run(GameBase* game, ArenaAllocator& frameArena)
     {
         frameArena.Reset();
 
-        game->Update(frameArena, GetFrameTime());
+        game->OnUpdate(frameArena, GetFrameTime());
 
         Render(game);
 
@@ -50,7 +50,7 @@ void Engine::Render(GameBase* game)
     m_window.BeginDrawing();
     m_window.ClearBackground(RAYWHITE);
 
-    game->Render();
+    game->OnRender();
 
     m_window.EndDrawing();
 }
