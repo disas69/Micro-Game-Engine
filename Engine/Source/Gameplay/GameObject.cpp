@@ -1,5 +1,5 @@
 #include "GameObject.h"
-#include "GraphicComponent.h"
+#include "Components/GraphicComponent.h"
 
 namespace Micro
 {

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Transform2dComponent.h"
-#include "Gameplay/GraphicComponent.h"
+#include "Gameplay/Components/Transform2dComponent.h"
+#include "Gameplay/Components/GraphicComponent.h"
 
 #include <raylib-cpp.hpp>
 

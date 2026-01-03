@@ -1,13 +1,13 @@
 #include "DefaultGame.h"
 #include "Core/RenderContext.h"
 #include "Gameplay/GameObject.h"
-#include "Gameplay/TransformComponent.h"
-#include "Gameplay/SpriteComponent.h"
-#include "Gameplay/MeshComponent.h"
-#include "Gameplay/TextComponent.h"
-#include "Gameplay/ImageComponent.h"
-#include "Gameplay/Transform2dComponent.h"
-#include "Gameplay/ButtonComponent.h"
+#include "Gameplay/Components/TransformComponent.h"
+#include "Gameplay/Components/SpriteComponent.h"
+#include "Gameplay/Components/MeshComponent.h"
+#include "Gameplay/Components/TextComponent.h"
+#include "UI/Components/ImageComponent.h"
+#include "Gameplay/Components/Transform2dComponent.h"
+#include "UI/Components/ButtonComponent.h"
 
 namespace Micro
 {

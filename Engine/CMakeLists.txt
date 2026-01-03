@@ -13,26 +13,28 @@ set(ENGINE_SOURCES
         Source/Memory/ArenaAllocator.h
         Source/Game/GameBase.cpp
         Source/Game/GameBase.h
-        Source/Gameplay/Component.h
-        Source/Gameplay/Component.cpp
+        Source/Gameplay/Components/Component.h
+        Source/Gameplay/Components/Component.cpp
         Source/Gameplay/GameObject.h
         Source/Gameplay/GameObject.cpp
         Source/Gameplay/GameObjectPool.h
-        Source/Gameplay/Transform2dComponent.cpp
-        Source/Gameplay/Transform2dComponent.h
-        Source/Gameplay/TransformComponent.cpp
-        Source/Gameplay/TransformComponent.h
-        Source/Gameplay/GraphicComponent.h
-        Source/Gameplay/SpriteComponent.cpp
-        Source/Gameplay/SpriteComponent.h
-        Source/Gameplay/MeshComponent.cpp
-        Source/Gameplay/MeshComponent.h
-        Source/Gameplay/TextComponent.cpp
-        Source/Gameplay/TextComponent.h
-        Source/Gameplay/ImageComponent.cpp
-        Source/Gameplay/ImageComponent.h
-        Source/Gameplay/ButtonComponent.cpp
-        Source/Gameplay/ButtonComponent.h
+        Source/Gameplay/Components/Transform2dComponent.cpp
+        Source/Gameplay/Components/Transform2dComponent.h
+        Source/Gameplay/Components/TransformComponent.cpp
+        Source/Gameplay/Components/TransformComponent.h
+        Source/Gameplay/Components/GraphicComponent.h
+        Source/Gameplay/Components/SpriteComponent.cpp
+        Source/Gameplay/Components/SpriteComponent.h
+        Source/Gameplay/Components/MeshComponent.cpp
+        Source/Gameplay/Components/MeshComponent.h
+        Source/Gameplay/Components/TextComponent.cpp
+        Source/Gameplay/Components/TextComponent.h
+        Source/UI/Components/ImageComponent.cpp
+        Source/UI/Components/ImageComponent.h
+        Source/UI/Components/ButtonComponent.cpp
+        Source/UI/Components/ButtonComponent.h
+        Source/UI/Components/LabelComponent.cpp
+        Source/UI/Components/LabelComponent.h
         Source/Game/DefaultGame.cpp
         Source/Game/DefaultGame.h
         Source/External/raygui_impl.cpp

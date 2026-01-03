@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Gameplay/GraphicComponent.h"
+#include "GraphicComponent.h"
 
 namespace Micro
 {

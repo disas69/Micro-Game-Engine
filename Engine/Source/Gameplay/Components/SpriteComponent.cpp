@@ -1,7 +1,6 @@
-#include "pch.h"
 #include "SpriteComponent.h"
 #include "Gameplay/GameObject.h"
-#include "Gameplay/TransformComponent.h"
+#include "Gameplay/Components//TransformComponent.h"
 #include "Core/RenderContext.h"
 
 namespace Micro

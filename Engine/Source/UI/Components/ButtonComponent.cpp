@@ -1,5 +1,5 @@
 #include "ButtonComponent.h"
-#include "Gameplay/Transform2dComponent.h"
+#include "Gameplay/Components/Transform2dComponent.h"
 #include "Gameplay/GameObject.h"
 
 namespace Micro

@@ -1,6 +1,6 @@
 #include "TextComponent.h"
 #include "Gameplay/GameObject.h"
-#include "Gameplay/Transform2dComponent.h"
+#include "Gameplay/Components/Transform2dComponent.h"
 
 namespace Micro
 {

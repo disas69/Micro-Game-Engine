@@ -1,7 +1,7 @@
 #include "MeshComponent.h"
 #include "Transform2dComponent.h"
 #include "TransformComponent.h"
-#include "GameObject.h"
+#include "Gameplay/GameObject.h"
 
 namespace Micro
 {
