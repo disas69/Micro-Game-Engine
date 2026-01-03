@@ -15,8 +15,8 @@ EditorApp::EditorApp()
     int screenWidth = DEFAULT_EDITOR_SCREEN_WIDTH;
     int screenHeight = DEFAULT_EDITOR_SCREEN_HEIGHT;
 
-    raylib::Window::SetConfigFlags(FLAG_MSAA_4X_HINT | FLAG_VSYNC_HINT | FLAG_WINDOW_RESIZABLE);
-    raylib::Window::Init(screenWidth, screenHeight, "Micro Engine");
+    MWindow::SetConfigFlags(FLAG_MSAA_4X_HINT | FLAG_VSYNC_HINT | FLAG_WINDOW_RESIZABLE);
+    MWindow::Init(screenWidth, screenHeight, "Micro Engine");
     m_window.SetTargetFPS(60);
 
     std::string exeDir = GetApplicationDirectory();
@@ -50,7 +50,7 @@ EditorApp::~EditorApp() {}
 
 int EditorApp::Run()
 {
-    while (!raylib::Window::ShouldClose() && !m_shouldShutdown)
+    while (!MWindow::ShouldClose() && !m_shouldShutdown)
     {
         if (m_focusedView == EditorView::Scene)
         {
@@ -114,7 +114,7 @@ void EditorApp::DrawMenuBar()
     }
 }
 
-void EditorApp::DrawMainViewport(raylib::RenderTexture* sceneViewRT)
+void EditorApp::DrawMainViewport(MRenderTexture* sceneViewRT)
 {
     const ImGuiViewport* viewport = ImGui::GetMainViewport();
     ImGui::SetNextWindowPos(viewport->WorkPos);

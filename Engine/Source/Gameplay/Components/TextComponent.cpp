@@ -6,7 +6,7 @@ namespace Micro
 {
 TextComponent::TextComponent() : GraphicComponent(GraphicComponentType::GraphicTypeUI)
 {
-    Color = raylib::Color(0, 0, 0, 255);
+    Color = MColor(0, 0, 0, 255);
 }
 
 void TextComponent::OnRender()
@@ -18,7 +18,7 @@ void TextComponent::OnRender()
 
     if (m_transform != nullptr)
     {
-        raylib::DrawText(Text, m_transform->Position.x, m_transform->Position.y, FontSize, Color);
+        DrawText(Text, m_transform->Position.x, m_transform->Position.y, FontSize, Color);
     }
 }
 }  // namespace Micro

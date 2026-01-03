@@ -12,7 +12,7 @@ MeshComponent::MeshComponent() : GraphicComponent(GraphicComponentType::GraphicT
 
 void MeshComponent::OnRender()
 {
-    raylib::Matrix transformMatrix = MatrixIdentity();
+    MMatrix transformMatrix = MatrixIdentity();
 
     auto transform3d = m_owner->GetComponent<TransformComponent>();
     if (transform3d != nullptr)

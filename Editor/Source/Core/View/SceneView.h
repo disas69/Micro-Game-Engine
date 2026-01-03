@@ -24,14 +24,14 @@ public:
     void Render(ImVec2 size);
     void Resize(int width, int height);
 
-    raylib::RenderTexture* GetRenderTexture() { return &m_renderTexture; }
+    MRenderTexture* GetRenderTexture() { return &m_renderTexture; }
 
 private:
     int m_width;
     int m_height;
 
-    raylib::RenderTexture m_renderTexture;
-    raylib::Camera m_camera;
+    MRenderTexture m_renderTexture;
+    MCamera3D m_camera;
     SceneLogView m_sceneLogView;
 
     float m_moveSpeed = 10.0f;

@@ -21,13 +21,13 @@ int Engine::Run(GameBase* game, ArenaAllocator& frameArena)
     int screenWidth = 800;
     int screenHeight = 450;
 
-    raylib::Window::SetConfigFlags(FLAG_MSAA_4X_HINT | FLAG_VSYNC_HINT | FLAG_WINDOW_RESIZABLE);
-    raylib::Window::Init(screenWidth, screenHeight, game->GetWindowTitle());
+    MWindow::SetConfigFlags(FLAG_MSAA_4X_HINT | FLAG_VSYNC_HINT | FLAG_WINDOW_RESIZABLE);
+    MWindow::Init(screenWidth, screenHeight, game->GetWindowTitle());
     m_window.SetTargetFPS(60);
 
     game->Init();
 
-    while (!raylib::Window::ShouldClose() && !game->ShouldClose())
+    while (!MWindow::ShouldClose() && !game->ShouldClose())
     {
         frameArena.Reset();
 
@@ -35,7 +35,7 @@ int Engine::Run(GameBase* game, ArenaAllocator& frameArena)
 
         Render(game);
 
-        if (raylib::Window::IsResized())
+        if (MWindow::IsResized())
         {
             game->Resize(GetScreenWidth(), GetScreenHeight());
         }

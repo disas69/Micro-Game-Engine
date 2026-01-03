@@ -34,7 +34,7 @@ public:
 
 private:
     Engine m_engine;
-    raylib::Window m_window;
+    MWindow m_window;
 
     SceneView m_sceneView;
     ConsoleView m_consoleView;
@@ -45,6 +45,6 @@ private:
     bool m_shouldShutdown = false;
 
     void DrawMenuBar();
-    void DrawMainViewport(raylib::RenderTexture* sceneViewRT);
+    void DrawMainViewport(MRenderTexture* sceneViewRT);
 };
 }  // namespace Micro

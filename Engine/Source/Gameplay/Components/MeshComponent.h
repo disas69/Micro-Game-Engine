@@ -7,8 +7,8 @@ namespace Micro
 class MeshComponent : public GraphicComponent
 {
 public:
-    raylib::Mesh ObjectMesh;
-    raylib::Material ObjectMaterial;
+    MMesh ObjectMesh;
+    MMaterial ObjectMaterial;
 
     MeshComponent();
 

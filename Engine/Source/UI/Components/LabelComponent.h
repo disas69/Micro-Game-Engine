@@ -10,7 +10,7 @@ class LabelComponent : public GraphicComponent
 public:
     LabelComponent();
 
-    raylib::Vector2 Size;
+    MVector2 Size;
 
     void OnRender() override;
 

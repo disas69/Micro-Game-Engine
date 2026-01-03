@@ -33,6 +33,6 @@ public:
     }
 
 private:
-    raylib::Window m_window;
+    MWindow m_window;
 };
 }

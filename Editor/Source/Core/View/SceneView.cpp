@@ -19,7 +19,7 @@ void SceneView::Init(int width, int height)
     m_camera.SetFovy(60.0f);
     m_camera.SetProjection(CAMERA_PERSPECTIVE);
 
-    raylib::Vector3 forward = Vector3Subtract(m_camera.target, m_camera.position);
+    MVector3 forward = Vector3Subtract(m_camera.target, m_camera.position);
     forward = forward.Normalize();
 
     m_yaw = atan2f(forward.x, forward.z);

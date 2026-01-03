@@ -14,7 +14,7 @@ public:
     void OnRender() override;
 
 private:
-    raylib::Camera m_camera;
+    MCamera3D m_camera;
 
     GameObject* m_2dGameObject = nullptr;
     GameObject* m_3dGameObject = nullptr;

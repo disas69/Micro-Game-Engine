@@ -12,7 +12,7 @@ class ButtonComponent : public GraphicComponent
 public:
     ButtonComponent();
 
-    raylib::Vector2 Size;
+    MVector2 Size;
 
     void OnRender() override;
 

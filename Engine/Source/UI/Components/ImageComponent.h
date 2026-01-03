@@ -12,8 +12,8 @@ namespace Micro
 
         void OnRender() override;
 
-        raylib::Texture2D Texture;
-        raylib::Rectangle SourceRect = {0, 0, 100, 100};
+        MTexture2D Texture;
+        MRectangle SourceRect = {0, 0, 100, 100};
 
     private:
         Transform2dComponent* m_transform = nullptr;

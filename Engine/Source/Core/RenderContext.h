@@ -2,6 +2,6 @@
 
 namespace Micro
 {
-void SetActiveCamera3D(const raylib::Camera3D* camera);
-const raylib::Camera3D& GetActiveCamera3D();
+void SetActiveCamera3D(const MCamera3D* camera);
+const MCamera3D& GetActiveCamera3D();
 }  // namespace Micro

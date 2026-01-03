@@ -15,7 +15,7 @@ public:
 
     std::string Text;
     float FontSize = 20.0f;
-    raylib::Color Color;
+    MColor Color;
 
 private:
     Transform2dComponent* m_transform = nullptr;

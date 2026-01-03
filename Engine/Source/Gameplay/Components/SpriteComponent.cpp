@@ -16,10 +16,10 @@ void SpriteComponent::OnRender()
 
     if (m_transform != nullptr)
     {
-        raylib::Vector3 up = {0.0f, 1.0f, 0.0f};
-        raylib::Vector3 scale = m_transform->Scale;
-        raylib::Vector2 size = (Vector2){SourceRect.width * scale.x, SourceRect.height * scale.y};
-        raylib::Vector2 origin = Vector2Scale(size, 0.5);
+        MVector3 up = {0.0f, 1.0f, 0.0f};
+        MVector3 scale = m_transform->Scale;
+        MVector2 size = (Vector2){SourceRect.width * scale.x, SourceRect.height * scale.y};
+        MVector2 origin = Vector2Scale(size, 0.5);
 
         DrawBillboardPro(GetActiveCamera3D(), SpriteTexture, SourceRect, m_transform->Position, up, size, origin, m_transform->Rotation.y, Tint);
     }

@@ -16,7 +16,7 @@ class GraphicComponent : public Component
 public:
     explicit GraphicComponent(const GraphicComponentType type) : m_graphicType(type) {}
 
-    raylib::Color Tint = WHITE;
+    MColor Tint = WHITE;
 
     virtual void OnRender() = 0;
 

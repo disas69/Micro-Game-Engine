@@ -13,8 +13,8 @@ public:
 
     void OnRender() override;
 
-    raylib::Texture2D SpriteTexture;
-    raylib::Rectangle SourceRect = {0, 0, 100, 100};
+    MTexture2D SpriteTexture;
+    MRectangle SourceRect = {0, 0, 100, 100};
 
 private:
     TransformComponent* m_transform = nullptr;
